@@ -1,0 +1,173 @@
+.modal-checkbox{
+    display: none;
+}
+.button-close{
+    display: none;
+}
+.modal-contact-button{
+    padding: var(--space-md);
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #f9fafa;
+    transition: all .3s ease-in-out;
+    width: 360px;
+    height: 550px;
+    border-radius: var(--radius-xl) var(--radius-xl) 40px var(--radius-xl);
+    border: 1px solid #d5dcdf;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, .14);
+}
+.modal-container{
+    position: fixed;
+    pointer-events: none;
+    right: var(--space-lg);
+    bottom: calc(var(--space-lg) + 45px);
+    z-index: 9999;
+}
+.modal-container >*{
+    pointer-events: auto;
+}
+
+.modal-float-button{
+    position: relative;
+    display: flex;            
+    align-items: center; 
+    justify-content: center;
+    background-color: #f43904;
+    width: 54px;
+    height: 54px;
+    padding: var(--space-sm);
+    border-radius: 100%;
+    animation: modal-shadow-spin 4s infinite ease-in-out;
+    cursor: pointer;
+}
+
+.button-close{
+    width: 20px;
+    height: 20px;
+}
+.button-open{
+    width: 30px;
+}
+@keyframes modal-fadeout {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+@keyframes modal-fadein {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+.modal-checkbox:checked ~ .modal-float-button .button-open{
+    display: none;
+    animation-name: modal-fadeout;
+    animation-duration: .5s;
+}
+.modal-checkbox:checked ~ .modal-float-button .button-close{
+    display: block;
+    animation-name: modal-fadein;
+    animation-duration: .5s;
+}
+
+.modal-contact{
+    width: 54px;
+    height: 54px;
+    background-color: black;
+}
+
+@keyframes modal-shadow-spin {
+    0% {
+        box-shadow: 0 0 0 rgba(244, 57, 4, 0);
+    }
+
+    20% {
+        box-shadow: 0 0 20px rgba(244, 57, 4, 0.8);
+    }
+    
+    40% {
+        box-shadow: 0 0 20px rgba(244, 57, 4, 0.8);
+    }
+    60% {
+        box-shadow: 0 0 20px rgba(244, 57, 4, 0);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(244, 57, 4, 0);
+    }
+}
+.modal-contact{
+    border-radius: var(--radius-xl);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.modal-checkbox:checked ~ .modal-contact-button{
+    visibility: visible;
+    opacity: 1;
+}
+.modal-header{
+    position: relative;
+    isolation: isolate;
+}
+.modal-content{
+    padding-bottom: var(--space-md);
+    background-color: #f9fafa;
+}
+.modal-header::after{
+    content: "";
+    z-index: -2;
+    position: absolute;
+    width: calc(100% - 6px);
+    height: 100%;
+    top: 0px;
+    left: 3px;
+    border-radius: 10%;
+    box-shadow: rgba(46, 76, 91, 0.20) 0px 3px 5px;
+}
+
+.modal-support-profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: var(--fs-base);
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background-color: #f43904;
+    box-shadow: 0 4px 12px -4px rgba(0, 0, 0, .35);
+}
+.status-indicator{
+    display: inline-block;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: #16b62f;
+    border: 2px solid #fff;
+    bottom: 2px;
+    left: 2px;
+}
+
+.modal-header-content{
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+.modal-support-name{
+    line-height: 1.6;
+}
+.modal-support-name h3{
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--title-text);
+}
+.modal-support-name h4{
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-regular);
+    color: #6a787f;
+}
